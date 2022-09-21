@@ -15,4 +15,3 @@ for _ in range(T):
         result = h * 100 + (n // h)
 
     print(result)
-    

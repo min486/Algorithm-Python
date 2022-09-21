@@ -86,4 +86,3 @@ for num in nums:
 
 for row in old:
     print(*row, sep=' ')
-    

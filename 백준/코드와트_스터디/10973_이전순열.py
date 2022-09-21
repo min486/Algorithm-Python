@@ -22,4 +22,3 @@ else:
     align.sort(reverse = True)
 
     print(' '.join(map(str, (soon[:i + 1] + align))))
-    

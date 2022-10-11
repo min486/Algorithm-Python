@@ -7,4 +7,5 @@ if m < 45:
     m = 60 - 45 + m  # m = m + 15의 값
 else :
     m -= 45
+    
 print(h, m)

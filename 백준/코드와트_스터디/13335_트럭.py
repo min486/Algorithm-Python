@@ -1,7 +1,7 @@
 from collections import deque
 
 n, w, L = map(int, input().split())
-q = deque(list(map(int, input().split())))
+q = deque(list(map(int, input().split())))  # 트럭들의 무게들
 
 bridge = deque([0] * w)  # deque([0, 0])
 cnt = 0

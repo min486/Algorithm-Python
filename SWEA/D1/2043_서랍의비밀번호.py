@@ -1,7 +1,4 @@
-P, K = map(int, input().split())
- 
-cnt = 0
-for _ in range(K, P + 1):
-    cnt += 1
-     
-print(cnt)
+p, k = map(int, input().split())
+result = p-k+1
+
+print(result)

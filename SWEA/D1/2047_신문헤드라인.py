@@ -1,3 +1,3 @@
-headline = input().upper()
- 
-print(headline)
+string = input().upper()
+
+print(string)

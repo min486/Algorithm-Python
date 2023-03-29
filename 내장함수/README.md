@@ -1,6 +1,6 @@
 <div align="center">
   <p>
-    <img src="../README.assets/python.png">
+    <img src="./README.assets/python.png">
   </p>
   <br>
   <h2>내장함수</h2>
@@ -8,6 +8,7 @@
   <br>
   <br>
 </div>
+
 
 
 

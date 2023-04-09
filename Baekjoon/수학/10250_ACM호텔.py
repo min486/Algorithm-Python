@@ -1,6 +1,6 @@
-T = int(input())
+t = int(input())
 
-for _ in range(T):
+for _ in range(t):
     # h개의 층, w개의 방, n번째 손님
     h, w, n = map(int, input().split())
     result = 0

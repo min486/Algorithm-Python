@@ -15,10 +15,10 @@ def three_wall(cnt):  # 벽 세우기
 
 def bfs():
     deq = deque([])
-    new_graph = copy.deepcopy(graph) # 깊은 복사 (원래의 배열에 영향 안미침)
+    new_graph = copy.deepcopy(graph)  # 깊은 복사 (원래의 배열에 영향 안미침)
     for i in range(n):
         for j in range(m):
-            if graph[i][j] == 2: # 바이러스면 deq에 더하기
+            if graph[i][j] == 2:  # 바이러스면 deq에 더하기
                 deq.append([i,j])
     while deq:
         x,y = deq.popleft()

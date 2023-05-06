@@ -20,7 +20,7 @@
 
 ✔ 구간 합 구하기 : **S[j] - S[i-1]**
 
-&nbsp;&nbsp;&nbsp;	2번째 수(i) ~ 4번째 수(j)까지 합을 구하면 = 18 - 7 = 11
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	2번째 수(i) ~ 4번째 수(j)까지 합을 구하면 = 18 - 7 = 11
 
 <br>
 
@@ -42,14 +42,14 @@
 
 ✔ 구간 합 구하기 : **S[x2] [y2] - S[x1-1] [y2] - S[x2] [y1-1] + S[x1-1] [y1-1]**
 
-&nbsp;&nbsp;&nbsp;	(x1, y1)부터 (x2, y2)까지 합
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	(x1, y1)부터 (x2, y2)까지 합
 
-&nbsp;&nbsp;&nbsp;	👉 (2,2)부터 (3,4) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	👉 (2,2)부터 (3,4) 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	= S[3] [4] - S[2-1] [4] - S[3] [2-1] + S[2-1] [2-1]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	= S[3] [4] - S[2-1] [4] - S[3] [2-1] + S[2-1] [2-1]
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	= S[3] [4] - S[1] [4] - S[3] [1] + S[1] [1]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	= S[3] [4] - S[1] [4] - S[3] [1] + S[1] [1]
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	= 42 - 10 - 6 + 1 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	= 42 - 10 - 6 + 1 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	= 27
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	= 27

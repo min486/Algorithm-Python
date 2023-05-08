@@ -1,9 +1,10 @@
 t = int(input())
 
-for tc in range(1, t + 1) :
+for tc in range(1, t+1):
     n = int(input())
     result = 0
-    for _ in range(n) :
+    
+    for _ in range(n):
         p, x = map(float, input().split())
         result += p * x
 

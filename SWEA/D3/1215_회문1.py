@@ -2,12 +2,22 @@ t = 10
 
 for tc in range(1, t+1):
     n = int(input())
-    li = list(map(int, input().split()))
+    graph = [input() for _ in range(8)]
     result = 0
-    
-    for i in range(2, n-2):
-        mx = max(li[i-2 : i] + li[i+1 : i+3])
-        if li[i] > mx:
-            result += li[i] - mx
+
+    for rc in range(8):
+        for s in range(8-n+1):
+            e = s + n - 1
+            for i in range(n//2):
+                if graph[rc][s+i] != graph[rc][e-i]: 
+                    break
+            else:
+                result += 1
+        
+            for i in range(n//2):
+                if graph[s+i][rc] != graph[e-i][rc]: 
+                    break
+            else:
+                result += 1
 
     print(f'#{tc} {result}')

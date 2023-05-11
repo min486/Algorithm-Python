@@ -1,19 +1,16 @@
 def check():
     for i in range(n):
         for j in range(n):
-            if data[i][j] == 'o':
-                # 오른쪽, 아래, 오른쪽 아래 대각선, 왼쪽 아래 대각선
-                for dx, dy in ((0, 1), (1, 0), (1, 1), (1, -1)):
-                    nx = i
-                    ny = j
-                    cnt = 0
-
-                    while 0 <= nx < n and 0 <= ny < n and data[nx][ny] == 'o':
-                        cnt += 1
-                        nx += dx
-                        ny += dy
-
-                    if cnt >= 5:
+            if arr[i][j] == 'o':
+                # 우측, 하단, 하단 우측 대각선, 하단 좌측 대각선
+                for di, dj in ((0, 1), (1, 0), (1, 1), (1, -1)):
+                    for mul in range(5):
+                        ni, nj = i + di*mul, j + dj*mul
+                        if 0 <= ni < n and 0 <= nj < n and arr[ni][nj] == 'o':
+                            continue
+                        else:
+                            break
+                    else:
                         return 'YES'
     return 'NO'
 
@@ -21,6 +18,7 @@ t = int(input())
 
 for tc in range(1, t+1):
     n = int(input())
-    data = [input() for _ in range(n)]
+    arr = [input() for _ in range(n)]
+    result = check()
 
-    print(f'#{tc} {check()}')
+    print(f'#{tc} {result}')

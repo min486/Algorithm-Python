@@ -7,14 +7,24 @@ for tc in range(1, t+1):
     order_li = input().split()
     i = 0
 
-    while i < len(order_li):
-        if order_li[i] == 'I':
+    for _ in range(m):
+        ida = order_li[i]
+        if ida == 'I':
             order = int(order_li[i+1]) 
-            if order < 10:
-                for idx in range(order):
-                    result_li.insert(order+idx, order_li[i+3+idx])
-            i = i+3+order
+            cnt = int(order_li[i + 2]) 
+            for idx in range(cnt):
+                result_li.insert(order+idx, order_li[i+3+idx])
+            i += 3+cnt
+        elif ida == 'D':
+            order = int(order_li[i+1]) 
+            cnt = int(order_li[i+2]) 
+            for _ in range(cnt):
+                result_li.pop(order)
+            i += 3
+        elif ida == 'A':
+            cnt = int(order_li[i+1])
+            for idx in range(cnt):
+                result_li.append(order_li[i+2+idx])
+            i += 2 + cnt
 
-        elif order_li[i] == 'D':
-
-        elif order_li[i] == 'A':
+    print(f'#{tc}', *result_li[:10])

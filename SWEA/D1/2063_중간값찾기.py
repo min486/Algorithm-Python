@@ -1,7 +1,7 @@
-N = int(input())
-
+n = int(input())
 nums = list(map(int, input().split()))
+
 nums.sort()
-result = nums[N // 2]
+result = nums[n//2]
 
 print(result)

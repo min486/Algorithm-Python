@@ -1,11 +1,11 @@
-T = int(input())
+t = int(input())
 
-for tc in range(1, T+1):
-    nums = list(map(int, input().split()))
-    add = 0
+for tc in range(1, t+1):
+    li = list(map(int, input().split()))
+    sm = 0
     
-    for i in nums:
-        add += i
-    result = round(add / 10)
-        
+    for i in li:
+        sm += i
+    result = round(sm/10)
+
     print(f'#{tc} {result}')

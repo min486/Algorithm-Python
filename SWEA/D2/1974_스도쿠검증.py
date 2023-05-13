@@ -1,13 +1,10 @@
-T = int(input())
- 
-def isPuzzle(matrix):
-    # 가로 세로 검사
+def solve(arr):
     for i in range(9):
         row_num = [0] * 10
         col_num = [0] * 10
         for j in range(9):
-            row = matrix[i][j]
-            col = matrix[j][i]
+            row = arr[i][j]
+            col = arr[j][i]
 
             # 중복 체크
             if row_num[row]:
@@ -21,15 +18,18 @@ def isPuzzle(matrix):
             # 3x3 격자 검사
             if i % 3 == 0 and j % 3 == 0:
                 square = [0] * 10
-                for m in range(i, i+3):
-                    for n in range(j, j+3):
-                        num = matrix[m][n]
+                for n in range(i, i+3):
+                    for m in range(j, j+3):
+                        num = arr[n][m]
 
                         if square[num]: 
                             return 0
                         square[num] = 1
     return 1
-    
-for tc in range(1, T+1):
-    puzzle = [list(map(int, input().split())) for _ in range(9)]
-    print('#{} {}'.format(tc, isPuzzle(puzzle)))
+
+t = int(input())
+
+for tc in range(1, t+1):
+    arr = [list(map(int, input().split())) for _ in range(9)]
+    result = solve(arr)
+    print(f'#{tc} {result}')

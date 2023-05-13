@@ -1,4 +1,4 @@
-string = input()
+li = input()
 
-for i in string:
-    print(ord(i) - 64, end=' ')
+for i in li:
+    print(ord(i)-64, end=' ')

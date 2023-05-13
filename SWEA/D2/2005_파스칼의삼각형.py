@@ -1,8 +1,8 @@
-T = int(input())
+t = int(input())
 
-for tc in range(1, T + 1):
+for tc in range(1, t+1):
     print(f'#{tc}')
-    N = int(input())
+    n = int(input())
     
-    for i in range(N):
-        print(' '.join(str(11 ** i)))
+    for i in range(n):
+        print(' '.join(str(11**i)))

@@ -1,19 +1,19 @@
-T  = int(input())
+t = int(input())
 
-for tc in range(1, T+1):
-    tc_num = input()
-    scores = list(map(int, input().split()))
+for tc in range(1, t+1):
+    _ = input()
+    li = list(map(int, input().split()))
     cnt = [0] * 101
-    
-    max_cnt = 0
-    many_num = 0
-    
-    for i in scores:
+    many_cnt = 0
+    result = 0
+
+    for i in li:
         cnt[i] += 1
-    for x in range(1, len(cnt)):
-        # 빈도값이 같으면 큰 수를 출력
-        if cnt[x] >= max_cnt:
-            max_cnt = cnt[x]
-            many_num = x
+        
+    # 최빈수가 같으면 큰 수 출력    
+    for j in range(len(cnt)):
+        if cnt[j] >= many_cnt:  
+            many_cnt = cnt[j]
+            result = j
             
-    print(f'#{tc_num} {many_num}')
+    print(f'#{tc} {result}')

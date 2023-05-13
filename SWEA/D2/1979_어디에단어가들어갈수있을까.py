@@ -1,27 +1,27 @@
-T = int(input())
+t = int(input())
 
-for tc in range(1, T+1):
-    N, K = map(int, input().split())
-    puzzle = [list(map(int, input().split())) for _ in range(N)]
+for tc in range(1, t+1):
+    n, k = map(int, input().split())
+    arr = [list(map(int, input().split())) for _ in range(n)]
     result = 0
     
-    for i in range(N):
-        length = 0
+    for i in range(n):
+        leng = 0
         # 가로
-        for j in range(N):
-            if puzzle[i][j] == 1:
-                length += 1
-            if puzzle[i][j] == 0 or j == N-1:
-                if length == K:
+        for j in range(n):
+            if arr[i][j] == 1:
+                leng += 1
+            if arr[i][j] == 0 or j == n-1:
+                if leng == k:
                     result += 1
-                length = 0
+                leng = 0
         # 세로
-        for j in range(N):
-            if puzzle[j][i] == 1:
-                length += 1
-            if puzzle[j][i] == 0 or j == N-1:
-                if length == K:
+        for j in range(n):
+            if arr[j][i] == 1:
+                leng += 1
+            if arr[j][i] == 0 or j == n-1:
+                if leng == k:
                     result += 1
-                length = 0
+                leng = 0
                 
-    print(f'#{tc}', result)
+    print(f'#{tc} {result}')

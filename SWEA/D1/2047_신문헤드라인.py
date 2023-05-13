@@ -1,3 +1,3 @@
-string = input().upper()
+result = input().upper()
 
-print(string)
+print(result)

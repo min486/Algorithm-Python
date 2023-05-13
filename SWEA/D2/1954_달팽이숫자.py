@@ -1,11 +1,11 @@
-t = int(input())
 di = [0, 1, 0, -1]
 dj = [1, 0, -1, 0]
+
+t = int(input())
 
 for tc in range(1, t+1):
     n = int(input())
     arr = [[0] * n for _ in range(n)]
-
     i, j, cnt, dr = 0, 0, 1, 0
     arr[i][j] = cnt
     cnt += 1

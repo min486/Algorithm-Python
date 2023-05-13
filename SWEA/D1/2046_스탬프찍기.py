@@ -1,4 +1,4 @@
-num = int(input())
+n = int(input())
 
-for _ in range(num):
+for _ in range(n):
     print('#', end='')

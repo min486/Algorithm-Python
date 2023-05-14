@@ -1,12 +1,13 @@
-won_li = [50000, 10000, 5000, 1000, 500, 100, 50, 10]
+li = [50000, 10000, 5000, 1000, 500, 100, 50, 10]
 
-T = int(input())
+t = int(input())
 
-for tc in range(1, T + 1):
+for tc in range(1, t+1):
+    n = int(input())
     print(f'#{tc}')
-    N = int(input())
-    for i in won_li:
-        div = N // i
-        N -= (i * div) 
+
+    for i in li:
+        div = n // i
+        n -= (i * div) 
         print(div, end = ' ')            
     print()

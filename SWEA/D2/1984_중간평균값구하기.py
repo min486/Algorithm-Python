@@ -1,12 +1,10 @@
-T = int(input())
+t = int(input())
 
-for tc in range(1, T + 1):
-    nums = list(map(int, input().split()))
-    nums.sort()
-    del nums[0]
-    del nums[-1]
+for tc in range(1, t+1):
+    li = list(map(int, input().split()))
+    li.sort()
+    li.pop(0)
+    li.pop(-1)
     
-    total = sum(nums)
-    avg = round(total / 8)
-    
-    print(f'#{tc} {avg}')
+    result = round(sum(li) / len(li))
+    print(f'#{tc} {result}')

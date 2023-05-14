@@ -1,10 +1,11 @@
-import math
+t = int(input())
 
-T = int(input())
+for tc in range(1, t+1) :
+    n, d = map(int, input().split())
+    d = d * 2 + 1  # 분무기 1개로 뿌릴 수 있는 꽃의 개수
+    result = n // d
 
-for tc in range(1, T+1):
-    N, D = map(int, input().split())
-    section = D * 2 + 1
-    result = math.ceil(N / section)
+    if n % d != 0:
+        result += 1
 
     print(f'#{tc} {result}')

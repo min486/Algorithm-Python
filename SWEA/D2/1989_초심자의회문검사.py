@@ -1,10 +1,11 @@
-T = int(input())
+t = int(input())
 
-for tc in range(1, T + 1):
-    print(f'#{tc}', end = ' ')
-    word = input()
+for tc in range(1, t+1):
+    li = input()
     
-    if word == word[::-1]:
-        print(1)
+    if li == li[::-1]:
+        result = 1
     else:
-        print(0)
+        result = 0
+
+    print(f'#{tc} {result}')

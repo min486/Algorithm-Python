@@ -1,28 +1,28 @@
-T = int(input())
+t = int(input())
 
-for tc in range(1, T+1):
-    N, M = map(int, input().split())
-    A = list(map(int, input().split()))
-    B = list(map(int, input().split()))
+for tc in range(1, t+1):
+    n, m = map(int, input().split())
+    n_li = list(map(int, input().split()))
+    m_li = list(map(int, input().split()))
     max_value = 0
     
-    # 두 숫자열의 길이가 같을 때는 자리끼리 곱하기
-    if N == M:
-        for i in range(N):
-            max_value += A[i] * B[i]
+    # 두 숫자열의 길이 같을 때
+    if n == m:
+        for i in range(n):
+            max_value += n_li[i] * m_li[i]
     else:
-        if N > M:
-            for i in range(N-M+1):
+        if n > m:
+            for i in range(n-m+1):
                 result = 0
-                for j in range(M):
-                    result += A[i+j] * B[j]
+                for j in range(m):
+                    result += n_li[i+j] * m_li[j]
                 if result > max_value:
                     max_value = result
         else:
-            for i in range(M-N+1):
+            for i in range(m-n+1):
                 result = 0
-                for j in range(N):
-                    result += B[i+j] * A[j]
+                for j in range(n):
+                    result += n_li[j] * m_li[i+j]
                 if result > max_value:
                     max_value = result
                     

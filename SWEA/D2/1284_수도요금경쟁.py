@@ -1,12 +1,13 @@
-T = int(input())
+t = int(input())
 
-for tc in range(1, T + 1):
-    P, Q, R, S, W = map(int, input().split())
-    a_fee = W * P
+for tc in range(1, t+1):
+    p, q, r, s, w = map(int, input().split())
+    a_fee = w * p
 
-    if W <= R:
-        b_fee = Q
+    if w <= r:
+        b_fee = q
     else: 
-        b_fee = Q + (W - R) * S
+        b_fee = q + (w-r)*s
 
-    print(f'#{tc} {min(a_fee, b_fee)}')
+    result = min(a_fee, b_fee)
+    print(f'#{tc} {result}')

@@ -1,15 +1,15 @@
-T = int(input())
+t = int(input())
 
-for tc in range(1, T + 1):
-    ho1, mi1, ho2, mi2 = map(int, input().split())
-    ho_total = ho1 + ho2
-    mi_total = mi1 + mi2
+for tc in range(1, t+1):
+    h1, m1, h2, m2 = map(int, input().split())
+    total_h = h1 + h2
+    total_m = m1 + m2
     
-    if mi_total > 59:
-        ho_total += 1
-        mi_total -= 60
+    if total_m > 59:
+        total_h += 1
+        total_m -= 60
         
-    if ho_total > 12:
-        ho_total -= 12
+    if total_h > 12:
+        total_h -= 12
     
-    print(f'#{tc} {ho_total} {mi_total}')
+    print(f'#{tc} {total_h} {total_m}')

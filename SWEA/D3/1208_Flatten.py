@@ -11,4 +11,5 @@ for tc in range(1, t+1):
         li[0] += 1
         li[-1] -= 1
         
-    print(f'#{tc} {max(li) - min(li)}')
+    result = max(li) - min(li)
+    print(f'#{tc} {result}')

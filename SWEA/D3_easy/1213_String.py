@@ -2,9 +2,9 @@ t = 10
 
 for tc in range(1, t+1):
     _ = input()
-    find = input()
     st = input()
+    li = input()
     
-    result = st.count(find)
-
+    result = li.count(st)
+    
     print(f'#{tc} {result}')

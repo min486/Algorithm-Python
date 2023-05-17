@@ -8,8 +8,8 @@ for tc in range(1, t+1):
     cnt = 0
 
     for i in range(1, n+1):
-        for per in combinations(li, i):
-            if sum(per) == k:
+        for com in combinations(li, i):
+            if sum(com) == k:
                 cnt += 1
 
     print(f'#{tc} {cnt}')

@@ -11,7 +11,7 @@ for tc in range(1, t+1):
         ida = order_li[i]
         if ida == 'I':
             order = int(order_li[i+1]) 
-            cnt = int(order_li[i + 2]) 
+            cnt = int(order_li[i+2]) 
             for idx in range(cnt):
                 result_li.insert(order+idx, order_li[i+3+idx])
             i += 3+cnt
@@ -25,6 +25,6 @@ for tc in range(1, t+1):
             cnt = int(order_li[i+1])
             for idx in range(cnt):
                 result_li.append(order_li[i+2+idx])
-            i += 2 + cnt
+            i += 2+cnt
 
     print(f'#{tc}', *result_li[:10])

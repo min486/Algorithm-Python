@@ -31,8 +31,8 @@ for tc in range(1, t+1):
                     break
 
     b_cnt = w_cnt = 0
-    for lst in arr:
-        b_cnt += lst.count(1)
-        w_cnt += lst.count(2)
+    for li in arr:
+        b_cnt += li.count(1)
+        w_cnt += li.count(2)
 
     print(f'#{tc} {b_cnt} {w_cnt}')

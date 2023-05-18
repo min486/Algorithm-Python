@@ -16,14 +16,14 @@ for tc in range(1, t+1):
                 result = 0
                 for j in range(m):
                     result += n_li[i+j] * m_li[j]
-                if result > max_value:
+                if max_value < result:
                     max_value = result
         else:
             for i in range(m-n+1):
                 result = 0
                 for j in range(n):
-                    result += n_li[j] * m_li[i+j]
-                if result > max_value:
+                    result += m_li[i+j] * n_li[j]
+                if max_value < result:
                     max_value = result
                     
     print(f'#{tc} {max_value}')

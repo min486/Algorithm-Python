@@ -11,9 +11,8 @@ for tc in range(1, t+1):
     while len(se) < 10:
         cnt += 1
         num = n * cnt
-        num_st = str(num)
-
-        for i in range(len(num_st)):
-            se.add(num_st[i])
+        
+        for i in str(num):
+            se.add(i)
 
     print(f'#{tc} {cnt*n}')

@@ -14,6 +14,6 @@ def solution(s):
                     result += str(i)
                     leng += len(word[i])
                     break
-
+                
     answer = int(result)
     return answer

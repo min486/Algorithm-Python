@@ -6,10 +6,11 @@ class node:
 
 def solution(n, k, cmd):
     nodeArr = [node() for _ in range(n)]
+
     for i in range(1, n):
         nodeArr[i-1].next = nodeArr[i]
         nodeArr[i].prev = nodeArr[i-1]
-
+            
     curr = nodeArr[k]
     stack = []
 

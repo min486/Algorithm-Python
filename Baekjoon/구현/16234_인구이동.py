@@ -35,7 +35,7 @@ def solve(x, y, idx):
     # 연합 국가끼리 인구를 분배
     for i, j in u_li :
         arr[i][j] = total // cnt
-    return cnt
+    return
 
 n, l, r = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(n)]

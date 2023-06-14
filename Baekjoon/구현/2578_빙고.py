@@ -17,10 +17,11 @@ for n in li:
     visit[1][i] += 1
     visit[2][i-j] += 1
     visit[3][i+j] += 1
-    cnt = 0 
+    bingo = 0
+
     for v in visit:
-        cnt += v.count(5)
-    if cnt >= 3:
+        bingo += v.count(5)
+    if bingo >= 3:
         break
 
-print(sum(v[0]))
+print(sum(visit[0]))

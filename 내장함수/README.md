@@ -209,6 +209,9 @@
 >
 >   > .index(), .find() 두 함수 모두 괄호() 안에 문자가 처음 위치한 자리의 값을 찾을 수 있다
 >
+>   - index는 문자열, 리스트, 튜플 자료형에서 사용 가능
+>   - find는 문자열만 사용 가능
+>
 >   ```python
 >   a = 'hello'
 >   >>> a.index('o'))
@@ -701,12 +704,12 @@
 >   > 반복문 사용 시 몇 번째 반복문인지 확인할 때 사용
 >   >
 >   > 인덱스 번호와 컬렉션의 원소를 tuple형태로 반환
->   
+>
 >   ```python
 >   t = [1, 5, 7, 33, 39]
 >   for p in enumerate(t):
 >   	print(p)
->       
+>   
 >   (0, 1)
 >   (1, 5)
 >   (2, 7)
@@ -718,7 +721,7 @@
 >   for i, (r, a) in enumerate(zip(t1, t2)):
 >       print(i)
 >       print(r, a)
->       
+>   
 >   0
 >   1 2
 >   1
@@ -726,7 +729,70 @@
 >   2
 >   5 6
 >   ```
->   
->   
 >
+> - find / startswith / endswith
+>
+>   > 특정문자 찾을 때 사용
+>
+>   ### string.find(찾을 문자, 시작 index, 끝 index)
+>
+>   > 찾는 문자가 존재 한다면 해당 위치의 index를 반환
+>   >
+>   > 찾는 문자가 존재 하지 않는다면 -1을 반환
+>
+>   - find 함수 첫번째 인자
+>
+>     > 찾을 문자열 혹은 찾을 문자
+>
+>   - find 함수 두번째 인자 (생략가능)
+>
+>     > 문자를 찾을때 어디서부터 찾을지, 생략시 0
+>
+>   - find 함수 세번째 인자 (생략가능)
+>
+>     > 문자를 찾을때 어디까지 찾을지 끝, 생략시 맨 마지막 index
+>
+>   ```python
+>   # a변수에서 1번째~3번째 사이에 문자 'o'가 위치한 자리
+>   a = 'hello'
+>   >>> a.find('o', 1, 3)
+>   -1
+>   ```
+>
+>   ### string.startswith(특정 문자)
+>
+>   > 현재 문자열이 사용자가 지정하는 특정 문자로 시작하는지 확인
+>   >
+>   > True or False 반환
+>
+>   ```python
+>   a = 'final exam'
+>   >>> a.startswith('final')
+>   True
+>   ```
+>
+>   ### string.endswith(특정 문자)
+>
+>   > 현재 문자열이 사용자가 지정하는 특정 문자로 끝나는지 확인
+>   >
+>   > True or False 반환IndexError: string index out of range
+>
+>   ```python
+>   a = 'final exam'
+>   >>> a.endswith('exam')
+>   True
+>   
+>   # 비교 (endswith vs [-1])
+>   a = ''
+>   if a.endswith('.'):
+>       a = a[:-1]
+>   >>> a
+>   '' (Error X)
+>   --------------------------
+>   a = ''
+>   if a[-1] == '.'
+>       a = a[:-1]
+>   >>> a
+>   IndexError: string index out of range
+>   ```
 

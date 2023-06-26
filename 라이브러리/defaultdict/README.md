@@ -1,6 +1,6 @@
 ## 🧊 collections.defaultdict
 
-> dictionary에 기본값을 정의하고 키값이 없더라고 에러를 출력하지 않고 기본값 출력
+> dictionary에 기본값을 정의하고 키값이 없더라도 에러를 출력하지 않고 기본값 출력
 
 - 기존 dictionary에서 없는 key를 접근 or 조작할 때 KeyError 발생
 
@@ -66,7 +66,7 @@ defaultdict(<class 'set'>, {'영업부': {'서린', '조인'}, '회계부': {'�
 
 defaultdict을 int로 설정할 경우 리턴값은 0이며 이를 활용해 각 부서의 사원수를 셀 수 있다
 
-대신 이 코드를 실행할 때에는 데이터의 중복값이 없어야한다. 있을 경우 다 포함되서 나온다
+대신 이 코드를 실행할 때에는 데이터의 중복값이 없어야 한다. 있을 경우 다 포함되서 나온다
 
 ``` python
 from collections import defaultdict

@@ -21,5 +21,5 @@ def max_sheep(nodes, parent2children, info, s, w):
         if info[node] == SHEEP:
             max_s = max(max_sheep(nodes[:idx] + nodes[idx+1:] + parent2children[node], parent2children, info, s+1, w), max_s)
         elif s > w + 1:
-            max_s = max(max_sheep(nodes[:idx] + nodes[idx+1:] + parent2childeren[node], parent2children, info, s, w+1), max_s)
+            max_s = max(max_sheep(nodes[:idx] + nodes[idx+1:] + parent2children[node], parent2children, info, s, w+1), max_s)
     return max_s

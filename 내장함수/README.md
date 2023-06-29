@@ -709,19 +709,19 @@
 >   t = [1, 5, 7, 33, 39]
 >   for p in enumerate(t):
 >   	print(p)
->   
+>
 >   (0, 1)
 >   (1, 5)
 >   (2, 7)
 >   (3, 33)
 >   (4, 39)
->   
+>
 >   t1 = [1, 3, 5]
 >   t2 = [2, 4, 6]
 >   for i, (r, a) in enumerate(zip(t1, t2)):
 >       print(i)
 >       print(r, a)
->   
+>
 >   0
 >   1 2
 >   1
@@ -734,7 +734,7 @@
 >
 >   > 특정문자 찾을 때 사용
 >
->   ### string.find(찾을 문자, 시작 index, 끝 index)
+>   ### string.find(찾을 문자, 시작index, 끝index + 1)
 >
 >   > 찾는 문자가 존재 한다면 해당 위치의 index를 반환
 >   >
@@ -746,37 +746,41 @@
 >
 >   - find 함수 두번째 인자 (생략가능)
 >
->     > 문자를 찾을때 어디서부터 찾을지, 생략시 0
+>     > 문자를 찾을때 어디서부터 찾을지, 생략시 index 0부터
 >
 >   - find 함수 세번째 인자 (생략가능)
 >
 >     > 문자를 찾을때 어디까지 찾을지 끝, 생략시 맨 마지막 index
 >
 >   ```python
->   # a변수에서 1번째~3번째 사이에 문자 'o'가 위치한 자리
+>   # index 1~3번째 사이에 문자 'll'가 위치한 자리
+>   
 >   a = 'hello'
->   >>> a.find('o', 1, 3)
+>   >>> a.find('ll', 1, 3)  # 1~2 탐색
 >   -1
+>   
+>   >>> a.find('ll', 1, 4)  # 1~3 탐색
+>   2
 >   ```
->
+>   
 >   ### string.startswith(특정 문자)
 >
 >   > 현재 문자열이 사용자가 지정하는 특정 문자로 시작하는지 확인
 >   >
 >   > True or False 반환
->
+>   
 >   ```python
 >   a = 'final exam'
 >   >>> a.startswith('final')
 >   True
 >   ```
->
+>   
 >   ### string.endswith(특정 문자)
 >
 >   > 현재 문자열이 사용자가 지정하는 특정 문자로 끝나는지 확인
 >   >
 >   > True or False 반환IndexError: string index out of range
->
+>   
 >   ```python
 >   a = 'final exam'
 >   >>> a.endswith('exam')

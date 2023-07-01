@@ -1,8 +1,5 @@
 from collections import deque
 
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
-
 def bfs(place, x, y):
     visited = [[False] * 5 for _ in range(5)]
     q = deque()
@@ -13,9 +10,9 @@ def bfs(place, x, y):
         x, y, dist = q.popleft()
         if dist == 2:
             continue
-        for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
+        for dx, dy in ((-1,0), (1,0), (0,-1), (0,1)):  # 상/하/좌/우 탐색
+            nx = x + dx
+            ny = y + dy
             if 0 <= nx < 5 and 0 <= ny < 5:
                 if visited[nx][ny]:
                     continue
@@ -32,15 +29,15 @@ def check(place):
     for r in range(5):
         for c in range(5):
             if place[r][c] == 'P':
-                if bfs(place, r, c) == False:
+                if bfs(place, r, c) == False:  # 거리두기 미준수
                     return False
-    return True        
+    return True  # 거리두기 준수       
 
 def solution(places):
     answer = []
 
     for place in places:
-        if check(place):
+        if check(place):  # 각 대기실 확인
             answer.append(1)
         else:
             answer.append(0)

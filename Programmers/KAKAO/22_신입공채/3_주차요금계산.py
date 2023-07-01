@@ -2,7 +2,7 @@ import math
 
 def convert(time):
     hh, mm = time.split(':')
-    return int(hh) * 60 + int(mm)
+    return int(hh) * 60 + int(mm)  # 분으로 리턴
 
 def solution(fees, records):
     inDic = {}
@@ -14,11 +14,11 @@ def solution(fees, records):
             inDic[num] = convert(time)
             if num not in resultDic:
                 resultDic[num] = 0
-        else:
+        else:  # OUT
             resultDic[num] += convert(time) - inDic[num]
             del inDic[num]
 
-    for k, v in inDic.items():
+    for k, v in inDic.items():  # 출차 내역 없는 차량들 처리
         resultDic[k] += (23 * 60 + 59) - v
 
     answer = []

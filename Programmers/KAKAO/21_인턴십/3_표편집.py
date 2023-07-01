@@ -1,29 +1,29 @@
-class node:
+class Node:
     def __init__(self):
         self.removed = False
         self.prev = None
         self.next = None
 
 def solution(n, k, cmd):
-    nodeArr = [node() for _ in range(n)]
+    nodeLi = [Node() for _ in range(n)]
 
     for i in range(1, n):
-        nodeArr[i-1].next = nodeArr[i]
-        nodeArr[i].prev = nodeArr[i-1]
-            
-    curr = nodeArr[k]
+        nodeLi[i-1].next = nodeLi[i]
+        nodeLi[i].prev = nodeLi[i-1]
+
+    curr = nodeLi[k]
     stack = []
 
-    for cm in cmd:
-        if cm[0] == 'U':
-            x = int(cm[2:])
+    for st in cmd:
+        if st[0] == 'U':
+            x = int(st[2:])
             for _ in range(x):
                 curr = curr.prev
-        elif cm[0] == 'D':
-            x = int(cm[2:])
+        elif st[0] == 'D':
+            x = int(st[2:])
             for _ in range(x):
                 curr = curr.next
-        elif cm[0] == 'C':
+        elif st[0] == 'C':
             stack.append(curr)
             curr.removed = True
             up = curr.prev
@@ -47,7 +47,7 @@ def solution(n, k, cmd):
 
     answer = ''
     for i in range(n):
-        if nodeArr[i].removed:
+        if nodeLi[i].removed:
             answer += 'X'
         else:
             answer += 'O'

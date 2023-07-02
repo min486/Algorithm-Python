@@ -3,10 +3,6 @@ from collections import defaultdict
 SHEEP = 0
 WOLF = 1
 
-def solution(info, edges):
-    parent2children = make_parent2children(edges)
-    return max_sheep([0], parent2children, info, 0, 0)
-
 def make_parent2children(edges):
     parent2children = defaultdict(list)
     for parent, child in edges:
@@ -23,3 +19,7 @@ def max_sheep(nodes, parent2children, info, s, w):
         elif s > w + 1:
             max_s = max(max_sheep(nodes[:idx] + nodes[idx+1:] + parent2children[node], parent2children, info, s, w+1), max_s)
     return max_s
+
+def solution(info, edges):
+    parent2children = make_parent2children(edges)
+    return max_sheep([0], parent2children, info, 0, 0)

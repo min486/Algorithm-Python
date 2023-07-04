@@ -803,9 +803,9 @@
 >   IndexError: string index out of range
 >   ```
 >
-> - eval(expression)
+> - eval
 >
->   > 입력으로 받은 expression (=식)을 문자열로 받아서, 이를 계산하고 반환해주는 함수
+>   > eval(expression)에서 입력으로 받은 expression (=식)을 문자열로 받아서, 이를 계산하고 반환해주는 함수
 >
 >   - expression(식)은 값, 연산자, 변수 등 하나 이상의 값으로 표현될 수 있는 코드
 >   - 문자열, 표현식, 변수들이 모두 str 타입이어야 한다

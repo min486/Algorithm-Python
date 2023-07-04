@@ -699,6 +699,9 @@
 >   [('a', 'd'), ('b', 'e'), ('c', 'f')]
 >   ```
 >
+> <hr>
+>
+>
 > - enumerate
 >
 >   > 반복문 사용 시 몇 번째 반복문인지 확인할 때 사용
@@ -754,38 +757,38 @@
 >
 >   ```python
 >   # index 1~3번째 사이에 문자 'll'가 위치한 자리
->   
+>
 >   a = 'hello'
 >   >>> a.find('ll', 1, 3)  # 1~2 탐색
 >   -1
->   
+>
 >   >>> a.find('ll', 1, 4)  # 1~3 탐색
 >   2
 >   ```
->   
+>
 >   ### string.startswith(특정 문자)
 >
 >   > 현재 문자열이 사용자가 지정하는 특정 문자로 시작하는지 확인
 >   >
 >   > True or False 반환
->   
+>
 >   ```python
 >   a = 'final exam'
 >   >>> a.startswith('final')
 >   True
 >   ```
->   
+>
 >   ### string.endswith(특정 문자)
 >
 >   > 현재 문자열이 사용자가 지정하는 특정 문자로 끝나는지 확인
 >   >
 >   > True or False 반환IndexError: string index out of range
->   
+>
 >   ```python
 >   a = 'final exam'
 >   >>> a.endswith('exam')
 >   True
->   
+>
 >   # 비교 (endswith vs [-1])
 >   a = ''
 >   if a.endswith('.'):
@@ -799,4 +802,20 @@
 >   >>> a
 >   IndexError: string index out of range
 >   ```
-
+>
+> - eval(expression)
+>
+>   > 입력으로 받은 expression (=식)을 문자열로 받아서, 이를 계산하고 반환해주는 함수
+>
+>   - expression(식)은 값, 연산자, 변수 등 하나 이상의 값으로 표현될 수 있는 코드
+>   - 문자열, 표현식, 변수들이 모두 str 타입이어야 한다
+>
+>   ```python
+>   result1 = eval('5' + '*' + '3')  # 5*3
+>   >>> result1
+>   15
+>   
+>   result2 = eval('10 - 3')
+>   >>> result1
+>   7
+>   ```

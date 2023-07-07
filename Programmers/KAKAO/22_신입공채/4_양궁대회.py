@@ -3,15 +3,16 @@ answer = [0] * 11
 
 def calculate_score_diff(rinfo, ainfo):
     rscore = ascore = 0
-    for i, (r, a) in enumerate(zip(rinfo, ainfo)):
-        if r == a == 0:
+    for idx, (r, a) in enumerate(zip(rinfo, ainfo)):
+        if r == a == 0:  # 둘다 화살 안쏜 경우 
             continue
         if r > a:
-            rscore += 10 - i
+            rscore += 10 - idx
         else:
-            ascore += 10 - i
+            ascore += 10 - idx
     return rscore - ascore
 
+# 점수차가 같은 경우가 여러가지면 가장 낮은 점수를 더 많이 맞힌 경우 return
 def better(info1, info2):
     for i1, i2 in zip(reversed(info1), reversed(info2)):
         if i1 > i2:
@@ -23,9 +24,10 @@ def better(info1, info2):
 def search(idx, n, rinfo, ainfo):
     global score_diff
     global answer
+    
     if idx == 10 or n == 0:
         rinfo[-1] = n
-        diff = calculate_score_diff(rinfo, ainfo)
+        diff = calculate_score_diff(rinfo, ainfo)  # 점수 차
         if diff > score_diff:
             score_diff = diff
             answer = rinfo[:]

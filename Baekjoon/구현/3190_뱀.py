@@ -1,62 +1,34 @@
-from collections import deque
+N = int(input())
+K = int(input())
+alst = [tuple(map(int, input().split())) for _ in range(K)]
+L = int(input())
+dlst = [input().split() for _ in range(L)]
 
-n = int(input())
-k = int(input())
-arr = [[0] * (n+1) for _ in range(n+1)]  # 맵 정보
-dr_li = []  # 방향 회전 정보
+di, dj = [-1,0,1,0], [0,1,0,-1] # 시계방향으로 방향정의
+dtbl = [0]*(10001)              # 방향전환에 사용되는 룩업테이블 생성
+for sec,turn in dlst:
+    dtbl[int(sec)]=turn
 
-for _ in range(k):
-    a, b = map(int, input().split())
-    arr[a][b] = 1  # 사과 있는 곳
+dr = 1                          # 오른쪽 방향
+snake = [(1,1)]                 # 좌측상단
+ans = 0                         # 0초
 
-l = int(input())
-for _ in range(l):
-    x, c = input().split()
-    dr_li.append((int(x), c))
-
-# 처음에는 오른쪽을 보고 있으므로(우, 하, 좌, 상)
-dx = [0, 1, 0, -1]
-dy = [1, 0, -1, 0]
-
-def turn(dr, c):
-    if c == 'L':
-        dr = (dr - 1) % 4
-    else:
-        dr = (dr + 1) % 4
-    return dr
-
-def solve():
-    x, y = 1, 1  # 뱀의 머리 위치
-    arr[x][y] = 2  # 뱀이 존재하는 위치는 2로 표시
-    dr = 0  # 처음에는 동쪽을 보고 있음
-    time = 0  # 시작한 뒤에 지난 '초' 시간
-    idx = 0  # 다음에 회전할 정보
-    q = deque([(x, y)])  # 뱀이 차지하고 있는 위치 정보(꼬리가 앞쪽)
-
-    while True:
-        nx = x + dx[dr]
-        ny = y + dy[dr]
-        # 범위 안에 있고, 뱀의 몸통이 없는 위치면
-        if 1 <= nx <= n and 1 <= ny <= n and arr[nx][ny] != 2:
-            # 사과가 없다면 이동 후에 꼬리 제거
-            if arr[nx][ny] == 0:
-                arr[nx][ny] = 2
-                q.append((nx, ny))
-                xx, yy = q.popleft()
-                arr[xx][yy] = 0
-            # 사과가 있다면 이동 후에 꼬리 그대로 두기
-            if arr[nx][ny] == 1:
-                arr[nx][ny] = 2
-                q.append((nx, ny))
-        # 벽이나 뱀의 몸통과 부딪히면
+while True:
+    ans += 1                    # 1초 경과
+    ci,cj = snake[0]            # 현재 머리좌표
+    ni,nj = ci+di[dr],cj+dj[dr] # 진행방으로 한 칸 이동
+    # 벽에 부딪혔거나, 뱀 몸에 부딪힌 경우 종료
+    if 1<=ni<=N and 1<=nj<=N and (ni,nj) not in snake:
+        snake.append((ni,nj)) # 머리위치[0]에 이동좌표 확장
+        if (ni,nj) in alst:
+            alst.remove((ni,nj))
         else:
-            time += 1
-            break
-        x, y = nx, ny  # 다음 위치로 머리 이동
-        time += 1
-        if idx < l and time == dr_li[idx][0]:  # 회전할 시간인 경우 회전
-            dr = turn(dr, dr_li[idx][1])
-            idx += 1
-    return time
-
-print(solve())
+            snake.pop(0)   # 꼬리부분 제거
+        # 방향전환
+        if dtbl[ans]=='D':      # 우회전 명령
+            dr = (dr+1)%4
+        elif dtbl[ans]=='L':    # 좌회전
+            dr = (dr+3)%4
+    else:                       # 종료
+        break
+print(ans)

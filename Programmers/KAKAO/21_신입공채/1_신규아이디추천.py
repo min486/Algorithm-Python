@@ -1,4 +1,4 @@
-def isValid(ch):
+def check(ch):
     if ch.isalnum():
         return True
     if ch == '-' or ch == '_' or ch == '.':
@@ -10,7 +10,7 @@ def solution(new_id):
 
     lastDot = False
     for ch in new_id:
-        if isValid(ch) == False:  # 2단계
+        if check(ch) == False:  # 2단계
             continue
 
         if ch == '.':  # 3,4단계
@@ -33,8 +33,8 @@ def solution(new_id):
         answer = answer[:-1]
 
     if len(answer) <= 2:  # 7단계
-        ch = answer[-1]
+        end = answer[-1]
         while len(answer) < 3:
-            answer += ch
+            answer += end
 
     return answer

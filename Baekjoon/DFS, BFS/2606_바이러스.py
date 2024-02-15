@@ -1,23 +1,23 @@
-n = int(input())
-m = int(input())
-graph = [[] for _ in range(n+1)]
+def dfs(c):
+    global res
 
-for _ in range(m):
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
+    res += 1
+    v[c] = 1
 
-visit = [False] * (n+1)
-visit[1] = True
-stack = [1]
+    for n in adj[c]:
+        if v[n] == 0:
+            dfs(n)
 
-while len(stack) != 0:
-    now = stack.pop()
+N = int(input())
+M = int(input())
+adj = [[] for _ in range(N+1)]
 
-    for adj in graph[now]:
-        if not visit[adj]:
-            visit[adj] = True
-            stack.append(adj)
+for _ in range(M):
+    s, e = map(int, input().split())
+    adj[s].append(e)
+    adj[e].append(s)
 
-result = sum(visit) - 1
-print(result)
+res = 0
+v = [0] * (N+1)
+dfs(1)
+print(res-1)

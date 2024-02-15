@@ -1,48 +1,47 @@
 from collections import deque
 
-def dfs(a):
-    result_dfs.append(a)  # 방문 결과 추가
-    visit[a] = 1  # 방문 표시
+def dfs(c):
+    res_dfs.append(c)  # 방문 노드 추가
+    v[c] = 1  # 방문 표시
 
-    for adj in graph[a]:
-        if visit[adj] == 0:  # 방문하지 않았으면
-            dfs(adj)
+    for n in adj[c]:
+        if v[n] == 0:  # 방문하지 않았으면
+            dfs(n)
 
-def bfs(a):
-    deq = deque()
-    deq.append(a)
+def bfs(s):
+    q = deque()
 
-    result_bfs.append(a)
-    visit[a] = 1
+    q.append(s)
+    res_bfs.append(s)
+    v[s] = 1
 
-    while deq:  # deq 빌때까지 진행
-        now = deq.popleft()
+    while q:  # q 빌때까지 진행
+        c = q.popleft()
 
-        for adj in graph[now]:
-            if visit[adj] == 0:
-                deq.append(adj)
-                result_bfs.append(adj)
-                visit[adj] = 1
+        for n in adj[c]:
+            if v[n] == 0:
+                q.append(n)
+                res_bfs.append(n)
+                v[n] = 1
 
-n, m, v = map(int, input().split())
-graph = [[] for _ in range(n+1)]
+N, M, V = map(int, input().split())
+adj = [[] for _ in range(N+1)]
 
-for _ in range(m):
+for _ in range(M):
     s, e = map(int, input().split())
-    graph[s].append(e)
-    graph[e].append(s)
+    adj[s].append(e)
+    adj[e].append(s)
 
-# 오름차순 정렬 (정점 번호 작은 것 먼저 방문)
-for i in range(1, n+1):
-    graph[i].sort()
+for i in range(1, N+1):  # 오름차순 정렬
+    adj[i].sort()
 
-visit = [0] * (n+1)
-result_dfs = []
-dfs(v)
+v = [0] * (N+1)
+res_dfs = []
+dfs(V)
 
-visit = [0] * (n+1)
-result_bfs = []
-bfs(v)
+v = [0] * (N+1)
+res_bfs = []
+bfs(V)
 
-print(*result_dfs)
-print(*result_bfs)
+print(*res_dfs)
+print(*res_bfs)

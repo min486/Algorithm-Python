@@ -1,35 +1,26 @@
 from collections import deque
 
-# 4방향 탐색을 위한 변수
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
+def bfs(si, sj, ei, ej):
+    q = deque()
+    v = [[0] * M for _ in range(N)]
 
-def bfs(x, y):
-    queue = deque()
-    queue.append((x, y))  # 출발 (0, 0)
-    visit[x][y] = 1  # 다시 방문 하지 않기 위해
+    q.append((si,sj))
+    v[si][sj] = 1
 
-    while queue:
-        x, y = queue.popleft()
+    while q:
+        ci, cj = q.popleft()
+        if (ci,cj) == (ei,ej):
+            return v[ei][ej]
 
-        # 4방향 탐색
-        for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
+        # 4방향, 범위내, 미방문, arr==1
+        for di,dj in ((-1,0),(1,0),(0,-1),(0,1)):
+            ni, nj = ci+di, cj+dj
+            if 0 <= ni < N and 0 <= nj < M and v[ni][nj] == 0 and arr[ni][nj] == 1:
+                q.append((ni,nj))
+                v[ni][nj] = v[ci][cj] + 1
 
-            # 범위를 넘지 않기 위해서
-            if 0 <= nx < n and 0 <= ny < m:
-                # 이동 가능('1') 인지 and 방문하지 않은 곳인지 판별
-                if map[nx][ny] == '1' and visit[nx][ny] == 0:
-                    # 전까지 방문했던 수 보다 한칸 더 간것이기에 +1
-                    visit[nx][ny] = visit[x][y] + 1
-                    # 도착지면 몇번만에 방문했는지 리턴
-                    if nx == n-1 and ny == m-1: 
-                        return visit[nx][ny]
-                    queue.append((nx, ny))
+N, M = map(int, input().split())
+arr = [list(map(int, input())) for _ in range(N)]
 
-n, m = map(int, input().split())
-map = [list(input()) for _ in range(n)]
-visit = [[0] * m for _ in range(n)]
-
-print(bfs(0, 0))
+res = bfs(0, 0, N-1, M-1)
+print(res)

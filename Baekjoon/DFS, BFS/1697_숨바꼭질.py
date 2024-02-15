@@ -1,23 +1,24 @@
 from collections import deque
 
 def bfs(s, e):
-    deq = deque()
-    deq.append(s)  # 초기데이터 삽입
-    visit[s] = 1  # 방문 표시
+    q = deque()
+    v = [0] * 200001
 
-    while deq:
-        x = deq.popleft()
+    q.append(s)
+    v[s] = 1
 
-        if x == e:
-            return visit[e] - 1
+    while q:
+        c = q.popleft()
+        if c == e:
+            return v[e] - 1
 
-        # 3방향, 범위내 and 미방문
-        for i in (x-1, x+1, x*2):
-            if 0 <= i <= 200000 and visit[i] == 0:
-                deq.append(i)
-                visit[i] = visit[x] + 1
+        # 3방향, 범위내, 미방문
+        for n in (c-1, c+1, c*2):
+            if 0 <= n <= 200000 and v[n] == 0:
+                q.append(n)
+                v[n] = v[c] + 1
 
-n, k = map(int, input().split())
-visit = [0] * 200001
+N, K = map(int, input().split())
 
-print(bfs(n, k))
+res = bfs(N, K)
+print(res)

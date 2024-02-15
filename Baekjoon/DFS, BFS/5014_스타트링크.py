@@ -1,25 +1,26 @@
 from collections import deque
 
 def bfs(s, e):
-    deq = deque()
-    deq.append(s)
-    visit[s] = 1
+    q = deque()
+    v = [0] * (F+1)
 
-    while deq:
-        x = deq.popleft()
+    q.append(s)
+    v[s] = 1  # 1부터 시작
 
-        if x == e:
-            return visit[e] - 1
+    while q:
+        c = q.popleft()
+        if c == e:
+            return v[e] - 1  # 1부터 시작했으니 -1 빼기
+            
+        # 2방향, 범위내, 미방문
+        for n in (c+U, c-D):
+            if 1 <= n <= F and v[n] == 0:
+                q.append(n)
+                v[n] = v[c] + 1
 
-        # 2방향, 범위내 and 미방문
-        for i in (x+u, x-d):
-            if 1 <= i <= f and visit[i] == 0:
-                deq.append(i)
-                visit[i] = visit[x] + 1
+    return 'use the stairs'  # 목적지 갈 수 없으면
 
-    return 'use the stairs'  # 목적지로 이동 불가한 경우
+F, S, G, U, D = map(int, input().split())
 
-f, s, g, u, d = map(int, input().split())
-visit = [0] * (f+1)
-
-print(bfs(s, g))
+res = bfs(S, G)
+print(res)

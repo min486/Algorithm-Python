@@ -1,15 +1,17 @@
-n = int(input())
+N = int(input())
 dic = {}
 
-for i in range(n):
-    file = input().split('.')[1]
-    if file in dic:
-        dic[file] += 1
+for _ in range(N):
+    back = input().split('.')[1]
+    
+    if back in dic:
+        dic[back] += 1
     else:
-        dic[file] = 1
+        dic[back] = 1
 
-# dic -> {'txt': 3, 'spc': 2, 'icpc': 2, 'world': 1}
-result = sorted(dic.items())  # [('icpc', 2), ('spc', 2), ('txt', 3), ('world', 1)]
+# {'txt': 3, 'spc': 2, 'icpc': 2, 'world': 1}
+# -> [('icpc', 2), ('spc', 2), ('txt', 3), ('world', 1)]
+res = sorted(dic.items())
 
-for k, v in result:
+for k, v in res:
     print(k, v)

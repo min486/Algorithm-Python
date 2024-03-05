@@ -1,16 +1,19 @@
-n, m = map(int, input().split())
-n_set = set()
-m_set = set()
+N, M = map(int, input().split())
 
-for _ in range(n):
-    n_set.add(input())
-for _ in range(m):
-    m_set.add(input())
+# set - in함수의 시간복잡도는 O(1)
+# list - in함수의 시간복잡도는 O(n)
+a_set = set()
+b_set = set()
+res = []
 
-# set 교집합
-nm = n_set & m_set  # {'ohhenrie', 'baesangwook'}
-result = sorted(nm)  # ['baesangwook', 'ohhenrie']
-print(len(result))
+for _ in range(N):
+    a_set.add(input())
+for _ in range(M):
+    b_set.add(input())
 
-for i in result:
-    print(i)
+for i in a_set:
+    if i in b_set:
+        res.append(i)
+
+res.sort()
+print(len(res), *res, sep='\n')

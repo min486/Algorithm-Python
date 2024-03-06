@@ -1,22 +1,29 @@
 from collections import deque
 
 def solution(queue1, queue2):
-    n = len(queue1)
-    total1, total2 = sum(queue1), sum(queue2)
-    q1, q2 = deque(queue1), deque(queue2)
-    
-    for i in range(n * 3):  # 두 큐의 모든 원소를 바꾸려면 (길이*2) 횟수이므로 넉넉히 *3으로
-        if total1 == total2:
-            return i
-        if total1 < total2:
-            x = q2.popleft()
-            total1 += x
-            total2 -= x
-            q1.append(x)
+    s1 = sum(queue1)
+    s2 = sum(queue2)
+
+    if (s1+s2) % 2:
+        return -1
+
+    queue1 = deque(queue1)  # 14
+    queue2 = deque(queue2)  # 16
+    le = len(queue1)
+    cnt = 0
+
+    while cnt < 4*le :
+        if s1 == s2:
+            return cnt
+        elif s1 > s2:
+            ele = queue1.popleft()
+            s1 -= ele
+            queue2.append(ele)
+            s2 += ele
         else:
-            x = q1.popleft()
-            total2 += x
-            total1 -= x
-            q2.append(x)
-    
+            ele = queue2.popleft()
+            s2 -= ele
+            queue1.append(ele)
+            s1 += ele
+        cnt += 1
     return -1

@@ -1,47 +1,47 @@
 from collections import deque
 
 def dfs(c):
-    res_dfs.append(c)  # 방문 노드 추가
-    v[c] = 1  # 방문 표시
+    ans_dfs.append(c)
+    v[c] = 1
 
     for n in adj[c]:
-        if v[n] == 0:  # 방문하지 않았으면
+        if v[n] == 0:
             dfs(n)
 
 def bfs(s):
     q = deque()
 
     q.append(s)
-    res_bfs.append(s)
+    ans_bfs.append(s)
     v[s] = 1
 
-    while q:  # q 빌때까지 진행
+    while q:
         c = q.popleft()
 
         for n in adj[c]:
             if v[n] == 0:
                 q.append(n)
-                res_bfs.append(n)
+                ans_bfs.append(n)
                 v[n] = 1
 
-N, M, V = map(int, input().split())
-adj = [[] for _ in range(N+1)]
+n, m, v = map(int, input().split())
+adj = [[] for _ in range(n+1)]
 
-for _ in range(M):
-    s, e = map(int, input().split())
-    adj[s].append(e)
-    adj[e].append(s)
+for _ in range(m):
+    a, b = map(int, input().split())
+    adj[a].append(b)
+    adj[b].append(a)
 
-for i in range(1, N+1):  # 오름차순 정렬
+for i in range(1, n+1):
     adj[i].sort()
 
-v = [0] * (N+1)
-res_dfs = []
-dfs(V)
+v = [0] * (n+1)
+ans_dfs = []
+dfs(v)
 
-v = [0] * (N+1)
-res_bfs = []
-bfs(V)
+v = [0] * (n+1)
+ans_bfs = []
+bfs(v)
 
-print(*res_dfs)
-print(*res_bfs)
+print(*ans_dfs)
+print(*ans_bfs)

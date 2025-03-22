@@ -1,23 +1,24 @@
 def dfs(c):
-    global res
+    global ans
 
-    res += 1
+    ans += 1
     v[c] = 1
 
     for n in adj[c]:
         if v[n] == 0:
             dfs(n)
 
-N = int(input())
-M = int(input())
-adj = [[] for _ in range(N+1)]
+n = int(input())
+m = int(input())
+adj = [[] for _ in range(n+1)]
 
-for _ in range(M):
-    s, e = map(int, input().split())
-    adj[s].append(e)
-    adj[e].append(s)
+for _ in range(m):
+    a, b = map(int, input().split())
+    adj[a].append(b)
+    adj[b].append(a)
 
-res = 0
-v = [0] * (N+1)
+v = [0]*(n+1)
+ans = 0
 dfs(1)
-print(res-1)
+
+print(ans-1)

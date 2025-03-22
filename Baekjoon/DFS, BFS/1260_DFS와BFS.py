@@ -2,10 +2,10 @@ from collections import deque
 
 def dfs(c):
     ans_dfs.append(c)
-    v[c] = 1
+    v_dfs[c] = 1
 
     for n in adj[c]:
-        if v[n] == 0:
+        if v_dfs[n] == 0:
             dfs(n)
 
 def bfs(s):
@@ -13,16 +13,17 @@ def bfs(s):
 
     q.append(s)
     ans_bfs.append(s)
-    v[s] = 1
+    v_bfs[s] = 1
+    [s] = 1
 
     while q:
         c = q.popleft()
 
         for n in adj[c]:
-            if v[n] == 0:
+            if [n] == 0:
                 q.append(n)
                 ans_bfs.append(n)
-                v[n] = 1
+                v_bfs[n] = 1
 
 n, m, v = map(int, input().split())
 adj = [[] for _ in range(n+1)]
@@ -35,11 +36,11 @@ for _ in range(m):
 for i in range(1, n+1):
     adj[i].sort()
 
-v = [0] * (n+1)
+v_dfs = [0] * (n+1)
 ans_dfs = []
 dfs(v)
 
-v = [0] * (n+1)
+v_bfs = [0] * (n+1)
 ans_bfs = []
 bfs(v)
 
